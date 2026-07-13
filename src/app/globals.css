@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  outline-offset: 4px;
+}
+
+::selection {
+  background: #ddd6fe;
+  color: #2e1065;
+}
+
+@layer components {
+  .container-shell {
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+  }
+
+  .button-primary {
+    display: inline-flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    background: #7c3aed;
+    padding-inline: 1.25rem;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 8px 24px -12px rgba(124, 58, 237, 0.8);
+    transition: background-color 160ms ease, transform 160ms ease;
+  }
+
+  .button-primary:hover {
+    background: #6d28d9;
+    transform: translateY(-1px);
+  }
+
+  .button-secondary {
+    display: inline-flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    background: white;
+    padding-inline: 1.25rem;
+    color: #334155;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: border-color 160ms ease, background-color 160ms ease;
+  }
+
+  .button-secondary:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid #ddd6fe;
+    border-radius: 999px;
+    background: #f5f3ff;
+    padding: 0.4rem 0.7rem;
+    color: #6d28d9;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+  }
+
+  .text-gradient {
+    background: linear-gradient(110deg, #7c3aed, #9333ea 45%, #0891b2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .field-label {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: #334155;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .field-input {
+    display: block;
+    width: 100%;
+    height: 2.875rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.75rem;
+    background: white;
+    padding-inline: 0.9rem;
+    color: #0f172a;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+
+  .field-input::placeholder {
+    color: #94a3b8;
+  }
+
+  .field-input:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px #ede9fe;
+  }
+}
+
+@media (min-width: 640px) {
+  .container-shell {
+    width: min(100% - 3rem, 72rem);
+  }
+}
